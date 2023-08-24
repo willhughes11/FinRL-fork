@@ -206,8 +206,11 @@ class AgentBase:
         self.soft_update_tau = args.soft_update_tau
 
         self.states = None  # assert self.states == (1, state_dim)
+        # self.device = torch.device(
+        #     f"cuda:{gpu_id}" if (torch.cuda.is_available() and (gpu_id >= 0)) else "cpu"
+        # )
         self.device = torch.device(
-            f"cuda:{gpu_id}" if (torch.cuda.is_available() and (gpu_id >= 0)) else "cpu"
+            f"opencl:{gpu_id}" if (torch.backends.opencl.is_available() and (gpu_id >= 0)) else "cpu"
         )
 
         act_class = getattr(self, "act_class", None)
