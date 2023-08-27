@@ -56,8 +56,10 @@ class AlpacaProcessor:
         day_delta = 86400000000000  # pd.Timedelta('1D').delta == 86400000000000
         time_interval = pd.Timedelta("1 day")
         if time_interval.nanoseconds < day_delta:
-            NYSE_open_hour = "09:30"  # in NY
-            NYSE_close_hour = "15:59"  # in NY
+            # NYSE_open_hour = "09:30"  # in NY
+            # NYSE_close_hour = "15:59"  # in NY
+            NYSE_open_hour = "14:30"  # in UTC
+            NYSE_close_hour = "20:59"  # in UTC
             data_df = barset.between_time(NYSE_open_hour, NYSE_close_hour)
         else:
             data_df = barset
