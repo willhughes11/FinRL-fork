@@ -29,6 +29,7 @@ python = "^3.8"
 elegantrl = {git="https://github.com/AI4Finance-Foundation/ElegantRL.git#egg=elegantrl"}
 alpaca-trade-api = "^3"
 ccxt = "^3"
+torch = "~1.13"
 exchange-calendars = "^4"
 jqdatasdk = "^1"
 pyfolio = "^0.9"
